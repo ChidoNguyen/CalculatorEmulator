@@ -20,6 +20,7 @@ int main() {
 	cin >> userProblem;
 	Emulator.setProblem(userProblem);
 	Emulator.setSolveable(userProblem);
+	Emulator.setProblemParse(userProblem);
 
 	// Or we do Calc Emulator(userProblem); either or works
 

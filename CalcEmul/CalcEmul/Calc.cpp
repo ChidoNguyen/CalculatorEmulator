@@ -10,7 +10,7 @@ Calc::Calc(std::string question)
 {
 	setProblem(question);
 	setSolveable(question);
-
+	setProblemParse(question);
 }
 
 
@@ -41,6 +41,43 @@ void Calc::setSolveable(std::string question) {
 	}
 	else
 		this->solveable = false;
+}
+
+void Calc::setProblemParse(std::string question) {
+	std::string tmp_container = "";
+	std::vector<char> parenthesis;
+	bool digit;
+	
+	for (int x = 0; x < question.size(); x++) {
+		if (question[x] == '(') {
+			parenthesis.push_back('(');
+			tmp_container.push_back(question[x]);
+		}
+		else if (!parenthesis.empty()) {
+			tmp_container.push_back(question[x]);
+		}
+		else if (question[x] == ')') {
+			parenthesis.pop_back();
+			tmp_container.push_back(question[x]);
+			if (parenthesis.empty()) {
+				this->parse.push_back(tmp_container);
+				tmp_container = "";
+			}
+		}
+		else if (question[x] >= 48 && question[x] <= 57) {
+			tmp_container.push_back(question[x]);
+		}
+		else {
+			this->parse.push_back(tmp_container);
+			tmp_container = "";
+			tmp_container.push_back(question[x]);
+			this->parse.push_back(tmp_container);
+			tmp_container = "";
+		}
+
+	}
+	this->parse.push_back(tmp_container);
+	tmp_container = "";
 }
 /////////////////////////////////////////////////////////////
 
