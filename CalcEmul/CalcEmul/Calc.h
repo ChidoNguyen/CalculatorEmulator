@@ -20,8 +20,15 @@ public:
 
 	std::string getProblem();
 	bool getSolveable();
-
+	std::vector<std::string> getParsedComponents();
 	//////////
+
+	//Mathematics and other logic problems//
+	std::vector<std::string> stringParse(std::string question);
+	bool processSolveable(std::string question);
+	void solution();
+	int solutionProcess();
+
 	~Calc();
 };
 
