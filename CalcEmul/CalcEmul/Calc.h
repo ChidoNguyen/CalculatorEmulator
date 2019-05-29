@@ -10,6 +10,8 @@ private:
 	std::string problem;
 	bool solveable = true;
 	std::vector<std::string> parse;
+	int solution;
+
 public:
 	Calc();
 	Calc(std::string question);
@@ -26,8 +28,13 @@ public:
 	//Mathematics and other logic problems//
 	std::vector<std::string> stringParse(std::string question);
 	bool processSolveable(std::string question);
-	void solution();
-	int solutionProcess();
+	void solve();
+	int solutionProcess(std::vector<std::string> parsedQuestion);
+	int multiplication(std::string firstNumber, std::string secondNumber);
+
+
+	//Utility Function//
+	std::string trimParenthesis(std::string subunit);
 
 	~Calc();
 };

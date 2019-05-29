@@ -18,9 +18,11 @@ int main() {
 	Calc Emulator;
 	cout << "Please provide a math problem to solve with only + and * arthmitics" << endl;
 	cin >> userProblem;
+	//Emulator.trimParenthesis(userProblem);
 	Emulator.setProblem(userProblem);
 	Emulator.setSolveable(userProblem);
 	Emulator.setProblemParse(userProblem);
+	Emulator.solve();
 
 	// Or we do Calc Emulator(userProblem); either or works
 
