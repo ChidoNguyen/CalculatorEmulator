@@ -22,22 +22,22 @@ void Calc::setProblem(std::string question) {
 
 void Calc::setSolveable(std::string question) {
 	int stringSize = question.size();
-	std::vector<char> paranthesis;
+	std::vector<char> parenthesis;
 	std::string equation = question;
 	for (int x = 0; x < stringSize; x++) {
 		if (equation[x] == '(') {
-			paranthesis.push_back('(');
+			parenthesis.push_back('(');
 		}
-		else if (equation[x] == ')' && paranthesis.empty()) {
+		else if (equation[x] == ')' && parenthesis.empty()) {
 			this->solveable = false;
 			x = INT_MAX - 1;
 		}
 		else if (equation[x] == ')') {
-			paranthesis.pop_back();
+			parenthesis.pop_back();
 		}
 	}
 
-	if (paranthesis.empty() && this->solveable != false) {
+	if (parenthesis.empty() && this->solveable != false) {
 		this->solveable = true;
 	}
 	else
