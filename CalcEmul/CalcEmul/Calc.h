@@ -8,7 +8,7 @@ class Calc
 {
 private:
 	std::string problem;
-	bool solveable;
+	bool solveable = true;
 	std::vector<std::string> parse;
 public:
 	Calc();

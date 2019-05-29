@@ -30,13 +30,14 @@ void Calc::setSolveable(std::string question) {
 		}
 		else if (equation[x] == ')' && paranthesis.empty()) {
 			this->solveable = false;
+			x = INT_MAX - 1;
 		}
 		else if (equation[x] == ')') {
 			paranthesis.pop_back();
 		}
 	}
 
-	if (paranthesis.empty()) {
+	if (paranthesis.empty() && this->solveable != false) {
 		this->solveable = true;
 	}
 	else
