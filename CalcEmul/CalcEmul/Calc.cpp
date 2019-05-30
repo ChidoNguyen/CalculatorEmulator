@@ -204,12 +204,28 @@ int Calc::solutionProcess(std::vector<std::string> parsedQuestion) {
 	int updatedSub_Count = updated_parsed.size();
 	std::vector<std::string> postParen;
 	std::string multi = "*";
+	int astrik_index = -5;
 	for (int x = 0; x < updatedSub_Count; x++) {
 		if (updated_parsed[x].compare(multi) == 0) {
-			int var1_index = x - 1;
-			int var2_index = x + 1;
-			int product = multiplication(updated_parsed[var1_index], updated_parsed[var2_index]);
+			int product;
+			int var1_index;
+			int var2_index;
+			if (astrik_index + 2 == x) {
+				//sequential astrik's indexes//
+				std::string prev_product = postParen.back();
+				astrik_index = x;
+				var1_index = x + 1;
+				product = multiplication(prev_product, updated_parsed[var1_index]);
 
+			}
+			else {
+				var1_index = x - 1;
+				var2_index = x + 1;
+				astrik_index = x;
+
+				product = multiplication(updated_parsed[var1_index], updated_parsed[var2_index]);
+			}
+			
 			postParen.pop_back();
 			postParen.push_back(std::to_string(product));
 			x++;
