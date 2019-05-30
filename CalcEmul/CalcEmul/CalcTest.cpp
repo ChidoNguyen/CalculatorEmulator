@@ -1,7 +1,12 @@
 #include "CalcTest.h"
 #include <string>
 #include <vector>
+#include <iostream>
 #include "Calc.h"
+
+using std::cin;
+using std::cout;
+using std::endl;
 
 
 CalcTest::CalcTest()
@@ -11,10 +16,31 @@ CalcTest::CalcTest()
 
 void CalcTest::testCalc() {
 	// run all the tests and track it here
-	bool init_status = testCalcInit();
-	bool solveable_status = testCalcSolveable();
-	bool stringParse_status = testStringParse();
-	bool solutionProcess_status = testSolutionProcess();
+	std::vector<std::string> testNames= {
+		"Class Initiliation",
+		"Problem Solveable Check",
+		"String Parse Check",
+		"String Parse Parenthesis Trimming Check",
+		"Solution Procedure Check"
+	};
+	std::vector<bool>outcome;
+	outcome.push_back( testCalcInit());
+	outcome.push_back(testCalcSolveable());
+	outcome.push_back(testStringParse());
+	outcome.push_back(testParenTrim());
+	outcome.push_back(testSolutionProcess());
+
+	for (int x = 0; x < testNames.size(); x++) {
+		cout << testNames[x] << " : ";
+		if (outcome[x])
+			cout << "pass" << endl;
+		else
+			cout << "fail" << endl;
+	}
+	
+
+	
+		
 }
 
 /*Test Initilization:
@@ -139,7 +165,11 @@ bool CalcTest::testSolutionProcess() {
 		"10*10*10*10",
 		"10+1*10+10",
 		"(10+1)*10",
-		"11*2*(1+1)"
+		"11*2*(1+1)",
+		"-10*10",
+		"-10*-10",
+		"-1+1",
+		"-1+-1"
 	};
 
 	std::vector<int> solutions =
@@ -149,7 +179,11 @@ bool CalcTest::testSolutionProcess() {
 		10000,
 		30,
 		110,
-		44
+		44,
+		-100,
+		100,
+		0,
+		-2
 	};
 	
 	int testcase_count = problems.size();

@@ -14,24 +14,19 @@ using std::endl;
 using std::string;
 
 int main() {
-
+	/*
 	CalcTest calcTest;
-	calcTest.testCalc();
+	calcTest.testCalc(); */
 
 	string userProblem;
-	Calc Emulator;
-	cout << "Please provide a math problem to solve with only + and * arithmetics" << endl;
-	cin >> userProblem;
-	//Emulator.trimParenthesis(userProblem);
-	Emulator.setProblem(userProblem);
-	Emulator.setSolveable(userProblem);
-	Emulator.setProblemParse(userProblem);
-	Emulator.solve();
-
-	// Or we do Calc Emulator(userProblem); either or works
-
-
-	cout << userProblem;
+	do {
+		cout << "Please provide a math problem to solve with only ( , ), + and * arithmetics. Enter Quit to close." << endl;
+		cin >> userProblem;
+		if (userProblem.compare("Quit") == 0)
+			break;
+		Calc Emulator(userProblem);
+		Emulator.solve();
+	} while (userProblem.compare("Quit") != 0);
 
 
 	return 0;
