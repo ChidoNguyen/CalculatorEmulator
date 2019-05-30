@@ -91,7 +91,7 @@ std::vector<std::string> Calc::stringParse(std::string question) {
 			tmp_container.push_back(question[x]);
 		}
 		// for more than 1 digit numbers
-		else if (question[x] >= 48 && question[x] <= 57) {
+		else if ((question[x] >= 48 && question[x] <= 57) || question[x] == 45) {
 			tmp_container.push_back(question[x]);
 		}
 		// push number string into parse container , followed by operator
