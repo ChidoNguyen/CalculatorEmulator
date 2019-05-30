@@ -16,7 +16,7 @@ int main() {
 
 	string userProblem;
 	Calc Emulator;
-	cout << "Please provide a math problem to solve with only + and * arthmitics" << endl;
+	cout << "Please provide a math problem to solve with only + and * arithmetics" << endl;
 	cin >> userProblem;
 	//Emulator.trimParenthesis(userProblem);
 	Emulator.setProblem(userProblem);
