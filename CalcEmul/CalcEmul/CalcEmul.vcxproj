@@ -120,10 +120,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Calc.cpp" />
+    <ClCompile Include="CalcTest.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Calc.h" />
+    <ClInclude Include="CalcTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,7 +11,9 @@ Calc::Calc(std::string question)
 {
 	setProblem(question);
 	setSolveable(question);
-	setProblemParse(question);
+	if (this->getSolveable()) {
+		setProblemParse(question);
+	}
 }
 
 
@@ -59,6 +61,10 @@ bool Calc::getSolveable() {
 
 std::vector<std::string> Calc::getParsedComponents() {
 	return this->parse;
+}
+
+int Calc::getSolution() {
+	return this->solution;
 }
 /////////////////////////////////////////////////////////////
 

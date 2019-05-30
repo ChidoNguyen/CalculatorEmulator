@@ -6,6 +6,7 @@ Code Challenge Plexsys: Calculator Emulator for * and + handling w/o using shunt
 #include <iostream>
 #include <string>
 #include "Calc.h"
+#include "CalcTest.h"
 
 using std::cin;
 using std::cout;
@@ -13,6 +14,9 @@ using std::endl;
 using std::string;
 
 int main() {
+
+	CalcTest calcTest;
+	calcTest.testCalc();
 
 	string userProblem;
 	Calc Emulator;

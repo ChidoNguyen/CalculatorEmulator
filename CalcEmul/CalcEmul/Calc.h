@@ -23,6 +23,7 @@ public:
 	std::string getProblem();
 	bool getSolveable();
 	std::vector<std::string> getParsedComponents();
+	int getSolution();
 	//////////
 
 	//Mathematics and other logic problems//
