@@ -64,6 +64,8 @@ bool CalcTest::testCalcInit() {
 /*
 Test Solveable Function:
 Role of the function is to determine if equation is do-able i.e. proper input/ balanced ()'s
+Currently: Only checks () and if equation starts with a digit vs operator
+Future: Could expand on more complex checks
 */
 bool CalcTest::testCalcSolveable() {
 	std::vector<std::string> problems =
@@ -102,7 +104,10 @@ bool CalcTest::testCalcSolveable() {
 
 	return true;
 }
-
+/*
+Test String Parser:
+Examining our parser's ability to ignore white spaces, group multi-digit values together and separating ()'s component from digits from operators
+*/
 bool CalcTest::testStringParse() {
 	std::vector<std::string> problems =
 	{
@@ -136,6 +141,10 @@ bool CalcTest::testStringParse() {
 	return true;
 }
 
+/*
+Test Parentheses Trim:
+Making sure our trim function strips leading and trailing () pairs accordingly
+*/
 bool CalcTest::testParenTrim() {
 
 	std::vector<std::string> problems =
@@ -161,7 +170,10 @@ bool CalcTest::testParenTrim() {
 
 	return true;
 }
-
+/*
+Test solution process:
+Making sure our equation are solved appropriately when checked against input and solutions
+*/
 bool CalcTest::testSolutionProcess() {
 	std::vector<std::string> problems =
 	{

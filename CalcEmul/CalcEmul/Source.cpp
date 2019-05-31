@@ -25,6 +25,7 @@ int main() {
 		if (userProblem.compare("Quit") == 0)
 			break;
 		Calc Emulator(userProblem);
+		//if we can solve it we do//
 		if(Emulator.getSolveable())
 			Emulator.solve();
 		else {
