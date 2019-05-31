@@ -124,10 +124,10 @@ std::vector<std::string> Calc::stringParse(std::string question) {
 
 /*
 Function: processSolveable
-Job: goes through the string to make sure the ()'s are balanced
+Job: goes through the string to make sure the ()'s are balanced and number precedes first operator
 Input: String
 Output: returns a boolean
-ASSUMPTION: User input is correct for the most part future expansion could be more robust on the string checks
+ASSUMPTION+Future: User input is correct for the most part future expansion could be more robust on the string checks
 */
 bool Calc::processSolveable(std::string question) {
 	int stringSize = question.size();
@@ -145,8 +145,22 @@ bool Calc::processSolveable(std::string question) {
 			parenthesis.pop_back();
 		}
 	}
+	// if paren's are balanced continue next check if not return false
+	if (!parenthesis.empty()) {
+		return false;
+	}
+	//else
+		//return false;
 
-	if (parenthesis.empty()) {
+	//compare the first occurences of digit vs operators
+	int digitInd = question.find_first_of("0123456789");
+	int plusInd = question.find_first_of("+");
+	int multInd = question.find_first_of("*");
+	// numbers appear before + and * 
+	if (
+		( digitInd < plusInd || plusInd == std::string::npos)
+		&& 
+		(digitInd < multInd || multInd == std::string::npos) ) {
 		return true;
 	}
 	else

@@ -61,7 +61,10 @@ bool CalcTest::testCalcInit() {
 		return false;
 
 }
-
+/*
+Test Solveable Function:
+Role of the function is to determine if equation is do-able i.e. proper input/ balanced ()'s
+*/
 bool CalcTest::testCalcSolveable() {
 	std::vector<std::string> problems =
 	{ 
@@ -71,7 +74,8 @@ bool CalcTest::testCalcSolveable() {
 		"(1+1)",
 		"(1+1)+(1+1)",
 		"((1)+1)",
-		"(1)+1)"
+		"(1)+1)",
+		"+1+2"
 
 	};
 
@@ -83,6 +87,7 @@ bool CalcTest::testCalcSolveable() {
 		true,
 		true,
 		true,
+		false,
 		false
 	};
 
