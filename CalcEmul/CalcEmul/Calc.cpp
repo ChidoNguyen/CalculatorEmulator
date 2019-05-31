@@ -196,7 +196,7 @@ int Calc::solutionProcess(std::vector<std::string> parsedQuestion) {
 	// Logic : Process () ---> check and do multiplication --> then check and do +
 
 	int substring_Count = parsedQuestion.size();
-	std::vector<std::string> updated_parsed;
+	std::vector<std::string> updated_parsed; // use this to swap out values after our ()'s substrings have been solved
 	int runningSum = 0;
 
 	//work on any () portions
@@ -205,17 +205,18 @@ int Calc::solutionProcess(std::vector<std::string> parsedQuestion) {
 		std::string target = parsedQuestion[idx];
 		foundIndex = target.find_first_of("(");
 		if (foundIndex == std::string::npos) {
-			// do stuff if no () found
+			// if no () found 
 			updated_parsed.push_back(parsedQuestion[idx]);
 		}
 		else {
-			// if () found do other
-			std::string removedParen = trimParenthesis(target);
+			// if () found work on the new string
+			std::string removedParen = trimParenthesis(target); // cut off () pair
 			std::vector<std::string> tmpContainer;
-			tmpContainer = stringParse(removedParen);
+			tmpContainer = stringParse(removedParen); // our (3+4) is now 3+4 
 			// solve the things inside our ()
 			int subSolution = solutionProcess(tmpContainer);
 
+			// solution returned integer convert to string and move onto next step
 			std::string solution_to_string = std::to_string(subSolution);
 			updated_parsed.push_back(solution_to_string);
 			foundIndex = std::string::npos;
@@ -223,7 +224,7 @@ int Calc::solutionProcess(std::vector<std::string> parsedQuestion) {
 		}
 
 	}
-	// work on *
+	// Multiply *
 	int updatedSub_Count = updated_parsed.size();
 	std::vector<std::string> postParen;
 	std::string multi = "*";
@@ -258,7 +259,9 @@ int Calc::solutionProcess(std::vector<std::string> parsedQuestion) {
 		}
 	}
 
-	// work on +
+	// addition +
+	// everything left in the parsed string should be string of values and +
+	// iterate thru ignore the operator run a sum up
 	int postParen_Count = postParen.size();
 	std::string plus = "+";
 	for (int x = 0; x < postParen_Count; x++) {

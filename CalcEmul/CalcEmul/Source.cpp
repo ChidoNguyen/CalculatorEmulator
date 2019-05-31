@@ -20,7 +20,7 @@ int main() {
 
 	string userProblem;
 	do {
-		cout << "Please provide a math problem to solve with only ( , ), + and * arithmetics. Enter Quit to close." << endl;
+		cout << "Please provide a math problem to solve with only ( , ), + and * arithmetics." << endl <<"Good Input = (1+2)*4. Bad Input = ((+1)+2 unbalanced parentheses and leading operator." << endl << "Enter Quit to close." << endl;
 		std::getline(cin, userProblem);
 		if (userProblem.compare("Quit") == 0)
 			break;
