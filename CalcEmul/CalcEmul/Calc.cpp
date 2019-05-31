@@ -36,7 +36,7 @@ Output: N/a ; directly alters bool value of Calc's private solvable variable
 Future Expansion: Currently Assuming proper input; expand to fully check w/o assuming user proper input
 */
 void Calc::setSolvable(std::string question) {
-	this->solveble = processSolvable(question);
+	this->solvable = processSolvable(question);
 }
 /*
 Function: setProblemParse
