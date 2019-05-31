@@ -15,6 +15,8 @@ using std::string;
 
 int main() {
 	
+
+	// Test code commented out but left here to show how to start
 	/*CalcTest calcTest;
 	calcTest.testCalc();*/
 
