@@ -10,8 +10,8 @@ Calc::Calc()
 Calc::Calc(std::string question)
 {
 	setProblem(question);
-	setSolveable(question);
-	if (this->getSolveable()) {
+	setSolvable(question);
+	if (this->getSolvable()) {
 		setProblemParse(question);
 	}
 }
@@ -29,14 +29,14 @@ void Calc::setProblem(std::string question) {
 	this->problem = question;
 }
 /*
-Function: SetSolveable
+Function: SetSolvable
 Job: Determines if the equation is balanced i.e. equal number of ()'s
 Input: string
-Output: N/a ; directly alters bool value of Calc's private solveable variable
+Output: N/a ; directly alters bool value of Calc's private solvable variable
 Future Expansion: Currently Assuming proper input; expand to fully check w/o assuming user proper input
 */
-void Calc::setSolveable(std::string question) {
-	this->solveable = processSolveable(question);
+void Calc::setSolvable(std::string question) {
+	this->solveble = processSolvable(question);
 }
 /*
 Function: setProblemParse
@@ -55,8 +55,8 @@ std::string Calc::getProblem() {
 	return this->problem;
 }
 
-bool Calc::getSolveable() {
-	return this->solveable;
+bool Calc::getSolvable() {
+	return this->solvable;
 }
 
 std::vector<std::string> Calc::getParsedComponents() {
@@ -123,13 +123,13 @@ std::vector<std::string> Calc::stringParse(std::string question) {
 }
 
 /*
-Function: processSolveable
+Function: processSolvable
 Job: goes through the string to make sure the ()'s are balanced and number precedes first operator
 Input: String
 Output: returns a boolean
 ASSUMPTION+Future: User input is correct for the most part future expansion could be more robust on the string checks
 */
-bool Calc::processSolveable(std::string question) {
+bool Calc::processSolvable(std::string question) {
 	int stringSize = question.size();
 	std::vector<char> parenthesis;
 	std::string equation = question;

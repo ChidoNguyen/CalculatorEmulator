@@ -8,7 +8,7 @@ public:
 	CalcTest();
 	void testCalc();
 	bool testCalcInit();
-	bool testCalcSolveable();
+	bool testCalcSolvable();
 	bool testStringParse();
 	bool testParenTrim();
 	bool testSolutionProcess();

@@ -18,14 +18,14 @@ void CalcTest::testCalc() {
 	// run all the tests and track it here
 	std::vector<std::string> testNames= {
 		"Class Initiliation",
-		"Problem Solveable Check",
+		"Problem Solvable Check",
 		"String Parse Check",
 		"String Parse Parenthesis Trimming Check",
 		"Solution Procedure Check"
 	};
 	std::vector<bool>outcome;
 	outcome.push_back( testCalcInit());
-	outcome.push_back(testCalcSolveable());
+	outcome.push_back(testCalcSolvable());
 	outcome.push_back(testStringParse());
 	outcome.push_back(testParenTrim());
 	outcome.push_back(testSolutionProcess());
@@ -53,7 +53,7 @@ bool CalcTest::testCalcInit() {
 	std::vector<std::string> knownParse = { "1", "+", "(2*3)", "+", "4" };
 
 	if (question.compare(calculate.getProblem()) == 0
-		&& status == calculate.getSolveable()
+		&& status == calculate.getSolvable()
 		&& knownParse == calculate.getParsedComponents()) {
 		return true;
 	}
@@ -62,12 +62,12 @@ bool CalcTest::testCalcInit() {
 
 }
 /*
-Test Solveable Function:
+Test Solvable Function:
 Role of the function is to determine if equation is do-able i.e. proper input/ balanced ()'s
 Currently: Only checks () and if equation starts with a digit vs operator
 Future: Could expand on more complex checks
 */
-bool CalcTest::testCalcSolveable() {
+bool CalcTest::testCalcSolvable() {
 	std::vector<std::string> problems =
 	{ 
 		"1+1",
@@ -97,7 +97,7 @@ bool CalcTest::testCalcSolveable() {
 
 	for (int x = 0; x < testcase_count; x++) {
 		Calc calc(problems[x]);
-		if (calc.getSolveable() != solutions[x]) {
+		if (calc.getSolvable() != solutions[x]) {
 			return false;
 		}
 	}

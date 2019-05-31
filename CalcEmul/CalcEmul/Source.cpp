@@ -26,12 +26,14 @@ int main() {
 			break;
 		Calc Emulator(userProblem);
 		//if we can solve it we do//
-		if(Emulator.getSolveable())
+		if(Emulator.getSolvable())
 			Emulator.solve();
 		else {
 			cout << "Problem is cannot be solved please enter new problem." << endl;
 		}
+		cout << "Press enter to Continue." << endl;
 		cin.ignore(256, '\n');
+
 	} while (userProblem.compare("Quit") != 0);
 
 
