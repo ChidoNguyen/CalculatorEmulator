@@ -161,8 +161,8 @@ bool CalcTest::testSolutionProcess() {
 	std::vector<std::string> problems =
 	{
 		"(1+1)",
-		"1+(2+3)+4",
-		"10*10*10*10",
+		"1+ (2+3) +4",
+		"10 * 10 * 10 * 10",
 		"10+1*10+10",
 		"(10+1)*10",
 		"11*2*(1+1)",

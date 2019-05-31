@@ -14,9 +14,9 @@ using std::endl;
 using std::string;
 
 int main() {
-	/*
+	
 	CalcTest calcTest;
-	calcTest.testCalc(); */
+	calcTest.testCalc();
 
 	string userProblem;
 	do {

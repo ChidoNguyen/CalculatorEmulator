@@ -96,12 +96,15 @@ std::vector<std::string> Calc::stringParse(std::string question) {
 		else if (!parenthesis.empty()) {
 			tmp_container.push_back(question[x]);
 		}
-		// for more than 1 digit numbers
+		// we push new digits into an empty string incase number is multi-digit
 		else if ((question[x] >= 48 && question[x] <= 57) || question[x] == 45) {
 			tmp_container.push_back(question[x]);
 		}
+		else if (question[x] == 32) {
+			// ignore spaces
+		}
 		// push number string into parse container , followed by operator
-		else {
+		else { 
 			if (tmp_container.size() > 0) {
 				parseStorage.push_back(tmp_container);
 			}
